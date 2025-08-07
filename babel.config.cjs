@@ -1,4 +1,4 @@
-// ✅ babel.config.cjs (CommonJS format)
+//commonJS format
 module.exports = {
   presets: ['@babel/preset-env'],
 };

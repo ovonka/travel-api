@@ -9,6 +9,7 @@ export const weatherTypeDefs = gql`
   }
 
  type Query {
-  weather(city: String!): [WeatherForecast]
+  getWeatherForecast(city: String!): [WeatherForecast]
 }
+
 `;

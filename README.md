@@ -1,4 +1,4 @@
-🌍 Travel Planner GraphQL API
+# 🌍 Travel Planner GraphQL API
 
 A Node.js backend for a travel planning app — built using Apollo Server and GraphQL.
 
@@ -6,8 +6,19 @@ A Node.js backend for a travel planning app — built using Apollo Server and Gr
 
 ---
 
-## 🚀 Getting Started
+## ✨ Features
 
-```bash
-npm install
-npm run dev
+### 🏙️ City API
+
+- Query a curated list of supported cities for travel.
+- Schema:  
+  ```graphql
+  type Query {
+    cities: [City]
+  }
+
+  type City {
+    id: ID!
+    name: String!
+    country: String!
+  }

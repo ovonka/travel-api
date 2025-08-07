@@ -9,7 +9,6 @@ logs/
 .env
 .env.*
 
-# OS & Editor stuff
-.DS_Store
-.vscode/
-.idea/
+# Testing
+coverage/
+jest-cache/

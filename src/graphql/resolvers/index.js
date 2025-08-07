@@ -1,11 +1,4 @@
-import { gql } from 'graphql-tag';
-import { cityTypeDefs } from './city.js';
+import { cityResolvers } from './cityResolvers.js';
+import { weatherResolvers } from './weatherResolver.js';
 
-export const typeDefs = [
-  gql`
-    type Query {
-      cities: [City]
-    }
-  `,
-  cityTypeDefs,
-];
+export const resolvers = [cityResolvers, weatherResolvers];

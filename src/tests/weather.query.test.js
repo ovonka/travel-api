@@ -3,10 +3,16 @@ import fetch from 'node-fetch';
 
 describe('GraphQL Weather Query', () => {
   let url;
+  let server;
 
  beforeAll(async () => {
   const serverInfo = await createTestServer();
   url = serverInfo.url;
+  server = serverInfo.server;
+});
+
+afterAll(async () => {
+  await server.stop();
 });
 
   it('should return weather forecast for a valid city', async () => {

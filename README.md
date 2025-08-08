@@ -58,7 +58,7 @@ OPEN_METEO_BASE_URL=https://geocoding-api.open-meteo.com/v1
 3. Start the server:
 ```bash
 cd src
-npm run server
+npm start || npm run dev (with nodemon installed)
 ```
 
 The API will be available at http://localhost:4000/.

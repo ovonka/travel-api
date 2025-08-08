@@ -12,5 +12,5 @@ export async function createTestServer() {
     listen: { port: 0 }, // let OS choose an available port, avoiding conflicts
   });``
 
-  return { url  };
+  return {server, url  };
 }

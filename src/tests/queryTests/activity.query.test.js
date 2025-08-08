@@ -1,4 +1,4 @@
-import { createTestServer } from '../testUtils/bootstrapTestServer.js';
+import { createTestServer } from '../../testUtils/bootstrapTestServer.js';
 import fetch from 'node-fetch';
 
 let server;

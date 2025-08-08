@@ -1,4 +1,4 @@
-import { getRankedActivities } from '../services/activityService.js';
+import { getRankedActivities } from '../../services/activityService.js';
 
 describe('getRankedActivities', () => {
   it('should return ranked activities for a valid city', async () => {

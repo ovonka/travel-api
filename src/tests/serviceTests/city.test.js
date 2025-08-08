@@ -1,4 +1,4 @@
-import { suggestCities } from '../services/cityService.js';
+import { suggestCities } from '../../services/cityService.js';
 
 describe('suggestCities', () => {
   it('should return city suggestions for a valid query', async () => {

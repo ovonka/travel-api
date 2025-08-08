@@ -1,4 +1,4 @@
-import { getWeatherForecast } from '../services/weatherService.js';
+import { getWeatherForecast } from '../../services/weatherService.js';
 
 describe('getWeatherForecast', () => {
   it('should return weather data for a valid city', async () => {

@@ -1,19 +1,23 @@
 import { getWeatherForecast } from '../../services/weatherService.js';
 
-describe('getWeatherForecast', () => {
-  it('should return weather data for a valid city', async () => {
+describe('getWeatherForecast (service)', () => {
+  it('should return weather data object for a valid city', async () => {
     const result = await getWeatherForecast('Cape Town');
-    expect(Array.isArray(result)).toBe(true);
-    if (result.length) {
-      expect(result[0]).toHaveProperty('date');
-      expect(result[0]).toHaveProperty('temperature');
-      expect(result[0]).toHaveProperty('windspeed');
-      expect(result[0]).toHaveProperty('weatherCode');
-    }
+
+    expect(result).not.toBeNull();
+    expect(result).toHaveProperty('latitude');
+    expect(result).toHaveProperty('longitude');
+    expect(result).toHaveProperty('forecast');
+    expect(Array.isArray(result.forecast)).toBe(true);
   });
 
-  it('should return an empty array for an invalid city', async () => {
+  it('should return null for an invalid city', async () => {
     const result = await getWeatherForecast('InvalidCityName!!');
-    expect(result).toEqual([]);
+    expect(result).toBeNull();
+  });
+
+  it('should return null for an empty city string', async () => {
+    const result = await getWeatherForecast('');
+    expect(result).toBeNull();
   });
 });

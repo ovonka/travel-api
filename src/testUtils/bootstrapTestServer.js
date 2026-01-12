@@ -10,7 +10,7 @@ export async function createTestServer() {
 
   const { url } = await startStandaloneServer(server, {
     listen: { port: 0 }, // let OS choose an available port, avoiding conflicts
-  });``
+  });
 
   return {server, url  };
 }

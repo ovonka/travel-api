@@ -5,12 +5,15 @@ const FORECAST_API = 'https://api.open-meteo.com/v1/forecast';
 
 export async function getWeatherForecast(city) {
   try {
+    const trimmed = (city || '').trim();
+    if (!trimmed) return null;
+
     const geoResponse = await axios.get(GEOCODING_API, {
-      params: { name: city, count: 1 },
+      params: { name: trimmed, count: 1 },
     });
 
     const location = geoResponse.data?.results?.[0];
-    if (!location) return [];
+    if (!location) return null;
 
     const { latitude, longitude } = location;
 
@@ -23,16 +26,21 @@ export async function getWeatherForecast(city) {
       },
     });
 
-    const data = weatherResponse.data.daily;
+    const data = weatherResponse.data?.daily;
+    if (!data?.time?.length) return null;
 
-    return data.time.map((date, index) => ({
-      date,
-      temperature: data.temperature_2m_max[index],
-      windspeed: data.windspeed_10m_max[index],
-      weatherCode: data.weathercode[index],
-    }));
+    return {
+      latitude,
+      longitude,
+      forecast: data.time.map((date, index) => ({
+        date,
+        temperature: data.temperature_2m_max[index],
+        windspeed: data.windspeed_10m_max[index],
+        weatherCode: data.weathercode[index],
+      })),
+    };
   } catch (error) {
     console.error('Error fetching weather:', error.message);
-    return [];
+    return null;
   }
 }
